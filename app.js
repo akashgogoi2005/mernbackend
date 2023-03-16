@@ -18,7 +18,7 @@ app.use(router);
 
 
 
-const port = process.env.PORT || 8005;
+const port = process.env.REACT_APP_BACKEND_URL || 8005;
 
 app.listen(port,()=>{
     console.log(`server is running at port number ${port}`);
@@ -26,3 +26,5 @@ app.listen(port,()=>{
 
 
 DefaultData();
+// const port = process.env.PORT || 8005;
+// const port = "mernbackend-tpat.onrender.com";
