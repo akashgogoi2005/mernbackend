@@ -6,6 +6,7 @@ import 'react-toastify/dist/ReactToastify.css';
 const Option = ({ deletedata, get }) => {
 
 
+    // eslint-disable-next-line
     const { account, setAccount } = useContext(LoginContext);
 
 
