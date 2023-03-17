@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom'
 import "./signup.css"
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { BASE_URL } from '../../services/helper';
 
 const SignUp = () => {
 
@@ -47,7 +48,7 @@ const SignUp = () => {
     }
 
 
-    const res = await fetch("register",{
+    const res = await fetch(`${BASE_URL}/register`,{
       method: "POST",
       headers: {
         "Content-Type": "application/json"

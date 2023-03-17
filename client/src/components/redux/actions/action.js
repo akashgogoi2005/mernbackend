@@ -1,6 +1,9 @@
+import { BASE_URL } from "../../../services/helper";
+
+
 export const getProducts =()=>async(dispatch)=>{
     try {
-        const datas = await fetch("/getproducts", {
+        const datas = await fetch(`${BASE_URL}/getproducts`, {
             method:"GET",
             headers:{
                 "Content-Type":"application/json"

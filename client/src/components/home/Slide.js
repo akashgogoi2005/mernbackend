@@ -1,33 +1,34 @@
 import React from 'react';
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import {Divider} from "@mui/material";
-import {NavLink} from "react-router-dom";
-//import { products } from './productdata';
+import { Divider } from "@mui/material";
+import { NavLink } from "react-router-dom";
+// import { products } from './productdata';
 import "./Slide.css";
+import { BASE_URL } from '../../services/helper';
 
 const responsive = {
   desktop: {
-      breakpoint: { max: 3000, min: 1024 },
-      items: 4
+    breakpoint: { max: 3000, min: 1024 },
+    items: 4
   },
   tablet: {
-      breakpoint: { max: 1024, min: 464 },
-      items: 2
+    breakpoint: { max: 1024, min: 464 },
+    items: 2
   },
   mobile: {
-      breakpoint: { max: 464, min: 0 },
-      items: 1
+    breakpoint: { max: 464, min: 0 },
+    items: 1
   }
 };
 
 
 //const senddata = ()=>{
-  //navigation("/",{state:e.id})
+//navigation("/",{state:e.id})
 //}
 
 
-const Slide = ({title,products}) => {
+const Slide = ({ title, products }) => {
   return (
     <div className='products_section'>
       <div className="products_deal">
@@ -37,32 +38,32 @@ const Slide = ({title,products}) => {
       <Divider />
 
       <Carousel
-      responsive={responsive}
-      infinite={true}
-      draggable={true}
-      swipeable={true}
-      showDots={false}
-      centerMode={true}
-      autoPlay={true}
-      autoPlaySpeed={4000}
-      keyBoardControl={true}
-      removeArrowOnDeviceType={["tablet", "mobile"]}
-      dotListClass="custom-dot-list-style"
-      itemClass="carousel-item-padding-40-px"
-      containerClass="carousel-container"
+        responsive={responsive}
+        infinite={true}
+        draggable={true}
+        swipeable={true}
+        showDots={false}
+        centerMode={true}
+        autoPlay={true}
+        autoPlaySpeed={4000}
+        keyBoardControl={true}
+        removeArrowOnDeviceType={["tablet", "mobile"]}
+        dotListClass="custom-dot-list-style"
+        itemClass="carousel-item-padding-40-px"
+        containerClass="carousel-container"
       >
         {
-          products.map((e)=>{
+          products.map((e) => {
             return (
-              <NavLink to={`/getproductsone/${e.id}`}>
-              <div className="products_items">
-                <div className="product_img">
-                  <img src={e.url} alt="productitem" />
+              <NavLink to={`${BASE_URL}/getproductsone/${e.id}`}>
+                <div className="products_items">
+                  <div className="product_img">
+                    <img src={e.url} alt="productitem" />
+                  </div>
+                  <p className='products_name'>{e.title.shortTitle}</p>
+                  <p className="products_offer">{e.discount}</p>
+                  <p className="products_explore">{e.tagline}</p>
                 </div>
-                <p className='products_name'>{e.title.shortTitle}</p>
-                <p className="products_offer">{e.discount}</p>
-                <p className="products_explore">{e.tagline}</p>
-              </div>
               </NavLink>
             )
           })

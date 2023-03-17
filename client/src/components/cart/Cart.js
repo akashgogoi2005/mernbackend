@@ -4,6 +4,7 @@ import { Divider } from '@mui/material';
 import { useNavigate, useParams } from 'react-router-dom';
 import { LoginContext } from '../context/ContextProvider';
 import CircularProgress from '@mui/material/CircularProgress';
+import { BASE_URL } from '../../services/helper';
 // import CircularProgress from '@mui/material';
 
 const Cart = () => {
@@ -27,7 +28,7 @@ const Cart = () => {
 
     useEffect(() => {
         const getinddata = async () => {
-            const res = await fetch(`/getproductsone/${id}`, {
+            const res = await fetch(`${BASE_URL}/getproductsone/${id}`, {
                 method: "GET",
                 headers: {
                     "Content-Type": "application/json"
@@ -63,7 +64,7 @@ const Cart = () => {
     // add cart function ============================================
 
     const addtocart = async (id) => {
-        const checkres = await fetch(`/addcart/${id}`, {
+        const checkres = await fetch(`${BASE_URL}/addcart/${id}`, {
             method: "POST",
             headers: {
                 Accept: "application/json",
