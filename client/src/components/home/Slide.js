@@ -55,7 +55,7 @@ const Slide = ({ title, products }) => {
         {
           products.map((e) => {
             return (
-              <NavLink to={`${BASE_URL}/getproductsone/${e.id}`}>
+              <NavLink to={`/getproductsone/${e.id}`}>
                 <div className="products_items">
                   <div className="product_img">
                     <img src={e.url} alt="productitem" />
