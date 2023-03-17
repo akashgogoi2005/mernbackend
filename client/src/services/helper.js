@@ -1,2 +1,2 @@
-// export const BASE_URL = "http://localhost:8005"
-export const BASE_URL = "https://mernappbackend.onrender.com"
+export const BASE_URL = "http://localhost:8005"
+// export const BASE_URL = "https://mernappbackend.onrender.com"
