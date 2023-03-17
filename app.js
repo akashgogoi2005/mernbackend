@@ -13,11 +13,11 @@ const router = require("./routes/router");
 
 // Allow requests from your Netlify domain
 app.use((req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', 'https://main--steady-tarsier-71ae40.netlify.app');
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
-    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-    next();
-  });
+  res.setHeader('Access-Control-Allow-Origin', 'https://main--steady-tarsier-71ae40.netlify.app');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  next();
+});
 
 
 app.use(express.json());
@@ -28,10 +28,14 @@ app.use(router);
 
 
 
-const port = process.env.REACT_APP_BACKEND_URL || 8005;
 
-app.listen(port,()=>{
-    console.log(`server is running at port number ${port}`);
+//const port = process.env.REACT_APP_BACKEND_URL || 8005;
+// const port = 8005;
+
+const PORT = process.env.PORT || 8005;
+
+app.listen(PORT, () => {
+  console.log(`server is running at port number ${PORT}`);
 });
 
 
