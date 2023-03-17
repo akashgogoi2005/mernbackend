@@ -93,7 +93,7 @@ const Navbar = () => {
 
   useEffect(() => {
     const getdetailvalilduser = async () => {
-      const res = await fetch(`${BASE_URL}/validuser`, {
+      const res = await fetch(`/validuser`, {
         method: "GET",
         headers: {
           Accept: "application/json",
