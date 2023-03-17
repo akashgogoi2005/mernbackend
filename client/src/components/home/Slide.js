@@ -5,7 +5,7 @@ import { Divider } from "@mui/material";
 import { NavLink } from "react-router-dom";
 // import { products } from './productdata';
 import "./Slide.css";
-import { BASE_URL } from '../../services/helper';
+// import { BASE_URL } from '../../services/helper';
 
 const responsive = {
   desktop: {
