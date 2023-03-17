@@ -13,7 +13,7 @@ const router = require("./routes/router");
 
 // Allow requests from your Netlify domain
 app.use((req, res, next) => {
-  res.setHeader('Access-Control-Allow-Origin', 'https://mernappbackend.onrender.com');
+  res.setHeader('Access-Control-Allow-Origin', 'https://main--glittery-starlight-75f270.netlify.app');
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
   next();
