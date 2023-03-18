@@ -4,10 +4,10 @@ const Products = require("../models/productsSchema");
 const USER = require("../models/userSchema");
 const bcrypt = require("bcryptjs");
 const authenticate = require("../middleware/authenticate");
-// const BASE_URL = process.env.BASE_URL
+const BASE_URL = process.env.BASE_URL
 
 // get productsdata API
-router.get("/getproducts", async(req,res)=>{
+router.get(`${BASE_URL}/getproducts`, async(req,res)=>{
     try {
         const productsdata = await Products.find();
         //console.log("console the data" + productsdata);
@@ -20,7 +20,7 @@ router.get("/getproducts", async(req,res)=>{
 
 
 // Get individual data
-router.get("/getproductsone/:id", async(req, res)=>{
+router.get(`${BASE_URL}/getproductsone/:id`, async(req, res)=>{
     try {
         const {id} = req.params;
         // console.log(id);
@@ -41,7 +41,7 @@ router.get("/getproductsone/:id", async(req, res)=>{
 
 // register data
 
-router.post("/register",async(req,res)=>{
+router.post(`${BASE_URL}/register`,async(req,res)=>{
     //console.log(req.body)      ==this console.log use for console the data from the API call, this data will not show on the MONGODB Databases.
 
     const {fname,email,mobile,password,cpassword} = req.body;
@@ -82,7 +82,7 @@ router.post("/register",async(req,res)=>{
 
 // Login user API
 
-router.post("/login", async(req,res)=>{
+router.post(`${BASE_URL}/login`, async(req,res)=>{
     const {email,password} = req.body;
 
     if(!email || !password){
@@ -123,7 +123,7 @@ router.post("/login", async(req,res)=>{
 
 // adding the data into Cart
 
-router.post("/addcart/:id",authenticate,async(req,res)=>{
+router.post(`${BASE_URL}/addcart/:id`,authenticate,async(req,res)=>{
     try {
         const {id} = req.params;
         const cart = await Products.findOne({id:id});
@@ -149,7 +149,7 @@ router.post("/addcart/:id",authenticate,async(req,res)=>{
 
 // Get cart details
 
-router.get("/cartdetails", authenticate,async(req,res)=>{
+router.get(`${BASE_URL}/cartdetails`, authenticate,async(req,res)=>{
     try {
         const buyuser = await USER.findOne({_id:req.userID});
         res.status(201).json(buyuser);
@@ -160,7 +160,7 @@ router.get("/cartdetails", authenticate,async(req,res)=>{
 
 // get valid user
 
-router.get("/validuser", authenticate,async(req,res)=>{
+router.get(`${BASE_URL}/validuser`, authenticate,async(req,res)=>{
     try {
         const validuser = await USER.findOne({_id:req.userID});
         res.status(201).json(validuser);
@@ -171,7 +171,7 @@ router.get("/validuser", authenticate,async(req,res)=>{
 
 
 // remove item from cart
-router.delete("/remove/:id", authenticate,async(req,res)=>{
+router.delete(`${BASE_URL}/remove/:id`, authenticate,async(req,res)=>{
     try {
         const {id} = req.params;
 
@@ -193,7 +193,7 @@ router.delete("/remove/:id", authenticate,async(req,res)=>{
 // token1, token2, token3, token4
 
 // for user Logout
-router.get("/logout", authenticate,(req,res)=>{
+router.get(`${BASE_URL}/logout`, authenticate,(req,res)=>{
     try {
         req.rootUser.tokens = req.rootUser.tokens.filter((currElem)=>{
             return currElem.token !== req.token
