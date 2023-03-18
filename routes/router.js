@@ -7,7 +7,7 @@ const authenticate = require("../middleware/authenticate");
 const BASE_URL = process.env.BASE_URL
 
 // get productsdata API
-router.get(`${BASE_URL}/getproducts`, async(req,res)=>{
+router.get(`/getproducts`, async(req,res)=>{
     try {
         const productsdata = await Products.find();
         //console.log("console the data" + productsdata);
@@ -20,7 +20,7 @@ router.get(`${BASE_URL}/getproducts`, async(req,res)=>{
 
 
 // Get individual data
-router.get(`${BASE_URL}/getproductsone/:id`, async(req, res)=>{
+router.get(`/getproductsone/:id`, async(req, res)=>{
     try {
         const {id} = req.params;
         // console.log(id);
@@ -41,7 +41,7 @@ router.get(`${BASE_URL}/getproductsone/:id`, async(req, res)=>{
 
 // register data
 
-router.post(`${BASE_URL}/register`,async(req,res)=>{
+router.post(`/register`,async(req,res)=>{
     //console.log(req.body)      ==this console.log use for console the data from the API call, this data will not show on the MONGODB Databases.
 
     const {fname,email,mobile,password,cpassword} = req.body;
