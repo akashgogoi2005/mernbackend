@@ -104,7 +104,7 @@ router.post("/login", async(req,res)=>{
 
             res.cookie("Amazonweb",token,{
                 expires: new Date(Date.now() + 90000000000),
-                httpOnly: true
+             // httpOnly: true
             })
 
             if(!isMatch){

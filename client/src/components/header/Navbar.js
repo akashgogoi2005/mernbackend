@@ -17,7 +17,7 @@ import ListItem from '@mui/material/ListItem';
 import LogoutIcon from '@mui/icons-material/Logout';
 import { ToastContainer, toast } from 'react-toastify';
 import { useSelector } from 'react-redux';
-import { BASE_URL } from '../../services/helper';
+// import { BASE_URL } from '../../services/helper';
 
 const Navbar = () => {
 
@@ -56,7 +56,7 @@ const Navbar = () => {
   // Logout user with my codes----------------------------
 
   const logoutuser = async () => {
-    const res2 = await fetch(`${BASE_URL}/logout`, {
+    const res2 = await fetch(`/logout`, {
       method: "GET",
       headers: {
         Accept: "application/json",
@@ -93,7 +93,7 @@ const Navbar = () => {
 
   useEffect(() => {
     const getdetailvalilduser = async () => {
-      const res = await fetch(`${BASE_URL}/validuser`, {
+      const res = await fetch(`/validuser`, {
         method: "GET",
         headers: {
           Accept: "application/json",
