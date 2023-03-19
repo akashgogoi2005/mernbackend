@@ -5,6 +5,7 @@ const USER = require("../models/userSchema");
 const bcrypt = require("bcryptjs");
 const authenticate = require("../middleware/authenticate");
 const BASE_URL = process.env.BASE_URL
+const AUTHKEY = process.env.KEY
 
 // get productsdata API
 router.get(`/getproducts`, async(req,res)=>{
@@ -149,7 +150,7 @@ router.post(`${BASE_URL}/addcart/:id`,authenticate,async(req,res)=>{
 
 // Get cart details
 
-router.get(`${BASE_URL}/cartdetails`, authenticate,async(req,res)=>{
+router.get(`${BASE_URL},${AUTHKEY}/cartdetails`, authenticate,async(req,res)=>{
     try {
         const buyuser = await USER.findOne({_id:req.userID});
         res.status(201).json(buyuser);
@@ -160,7 +161,7 @@ router.get(`${BASE_URL}/cartdetails`, authenticate,async(req,res)=>{
 
 // get valid user
 
-router.get(`${BASE_URL}/validuser`, authenticate,async(req,res)=>{
+router.get(`${BASE_URL},${AUTHKEY}/validuser`, authenticate,async(req,res)=>{
     try {
         const validuser = await USER.findOne({_id:req.userID});
         res.status(201).json(validuser);
