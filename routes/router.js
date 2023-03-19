@@ -171,7 +171,7 @@ router.get(`${BASE_URL}/validuser`, authenticate,async(req,res)=>{
 
 
 // remove item from cart
-router.delete(`${BASE_URL}/remove/:id`, authenticate,async(req,res)=>{
+router.delete(`/remove/:id`, authenticate,async(req,res)=>{
     try {
         const {id} = req.params;
 
