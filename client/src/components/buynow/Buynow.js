@@ -4,10 +4,10 @@ import Option from './Option'
 import Subtotal from './Subtotal'
 import Right from './Right'
 import "./buynow.css"
-// import { BASE_URL } from '../../services/helper'
+import { BASE_URL } from '../../services/helper'
 
 const getdatabuy = async (setCartdata) => {
-  const res = await fetch(`/cartdetails`, {
+  const res = await fetch(`${BASE_URL}/cartdetails`, {
     method: "GET",
     headers: {
       Accept: "application/json",

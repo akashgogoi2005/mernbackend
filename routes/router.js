@@ -149,7 +149,7 @@ router.post(`${BASE_URL}/addcart/:id`,authenticate,async(req,res)=>{
 
 // Get cart details
 
-router.get(`${BASE_URL}/cartdetails`, authenticate,async(req,res)=>{
+router.get(`/cartdetails`, authenticate,async(req,res)=>{
     try {
         const buyuser = await USER.findOne({_id:req.userID});
         res.status(201).json(buyuser);
