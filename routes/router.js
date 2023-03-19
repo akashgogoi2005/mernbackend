@@ -123,7 +123,7 @@ router.post(`/login`, async(req,res)=>{
 
 // adding the data into Cart
 
-router.post(`${BASE_URL}/addcart/:id`,authenticate,async(req,res)=>{
+router.post(`/addcart/:id`,authenticate,async(req,res)=>{
     try {
         const {id} = req.params;
         const cart = await Products.findOne({id:id});
