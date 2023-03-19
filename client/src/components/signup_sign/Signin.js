@@ -5,7 +5,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { LoginContext } from '../context/ContextProvider';
 import { BASE_URL } from '../../services/helper';
-import { KEY } from '../../services/key';
+// import { KEY } from '../../services/key';
 
 const Signin = () => {
 
@@ -38,7 +38,7 @@ const Signin = () => {
 
     const { email, password } = logdata;
 
-    const res = await fetch(`${BASE_URL},${KEY}/login`, {
+    const res = await fetch(`${BASE_URL}/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
