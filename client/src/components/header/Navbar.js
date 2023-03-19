@@ -17,7 +17,7 @@ import ListItem from '@mui/material/ListItem';
 import LogoutIcon from '@mui/icons-material/Logout';
 import { ToastContainer, toast } from 'react-toastify';
 import { useSelector } from 'react-redux';
-import { BASE_URL } from '../../services/helper';
+// import { BASE_URL } from '../../services/helper';
 
 const Navbar = () => {
 
