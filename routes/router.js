@@ -4,7 +4,7 @@ const Products = require("../models/productsSchema");
 const USER = require("../models/userSchema");
 const bcrypt = require("bcryptjs");
 const authenticate = require("../middleware/authenticate");
-const BASE_URL = process.env.BASE_URL
+// const BASE_URL = process.env.BASE_URL
 
 // get productsdata API
 router.get(`/getproducts`, async(req,res)=>{
@@ -160,7 +160,7 @@ router.get(`/cartdetails`, authenticate,async(req,res)=>{
 
 // get valid user
 
-router.get(`${BASE_URL}/validuser`, authenticate,async(req,res)=>{
+router.get(`/validuser`, authenticate,async(req,res)=>{
     try {
         const validuser = await USER.findOne({_id:req.userID});
         res.status(201).json(validuser);
@@ -193,7 +193,7 @@ router.delete(`/remove/:id`, authenticate,async(req,res)=>{
 // token1, token2, token3, token4
 
 // for user Logout
-router.get(`${BASE_URL}/logout`, authenticate,(req,res)=>{
+router.get(`/logout`, authenticate,(req,res)=>{
     try {
         req.rootUser.tokens = req.rootUser.tokens.filter((currElem)=>{
             return currElem.token !== req.token
